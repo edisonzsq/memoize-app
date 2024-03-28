@@ -1,4 +1,4 @@
-import {useState, useEffect, useMemo} from 'react';
+import {useState, useEffect} from 'react';
 import Child from "./Child"
 import useMockData from '../hooks/useMockData';
 
