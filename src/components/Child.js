@@ -1,15 +1,37 @@
-import { useEffect } from "react";
+let renderCount = 0;
 
-let numberOfRenders = 0;
+const Child = ({data, tax}) => {
 
-const Child = ({data}) => {
+    renderCount++; // Render Count will increment when there is a render / re-render
 
-    numberOfRenders++; // Increment by 2 means the child component has re-rendered
+    const calculatePayable = () => {
+        let totalPrice = 0;
+        data?.forEach(d => {
+            totalPrice += d.price;
+        })
+        return totalPrice * tax;
+    }
 
     return (
         <div style={{border:"4px solid blue", padding:"4px"}}>
-            <div>Number of renders: {numberOfRenders} </div>
-            <div>Data: {data}</div>
+            Render Count: {renderCount}
+            {
+                data?.map((d, i) => {
+                    return (
+                        <div key={i} style={{display:"flex", flexDirection:"row"}}>
+                            <div style={{display:"flex", flexDirection:"row", padding:"4px"}}>
+                                <div>Product:</div>
+                                <div>{d.product}</div>
+                            </div>
+                            <div style={{display:"flex", flexDirection:"row", padding:"4px"}}>
+                                <div>Price</div>
+                                <div>{d.price}</div>
+                            </div>
+                        </div>
+                    )
+                })
+            }
+            <b>Payable: {calculatePayable()}</b>
         </div>
     );
 
