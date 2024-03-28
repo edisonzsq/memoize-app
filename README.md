@@ -4,6 +4,18 @@
 
 This exercise is a result of a career workshop I gave to some students. We spoke about optimizing react components given the component re-renders unexpectedly.
 
+## How to proceed
+
+Follow these commands on terminal:
+
+```sh
+git clone https://github.com/edisonzsq/memoize-app
+cd memoize-app
+npm i && npm start
+```
+
+Start solving the problem!
+
 ## Problem
 
 In this code base, the parent component will make a copy of a mock data and pass to the child every 1 second. As a result, the child component would re-render each time a new data is passed via props. 
